@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to the Mojolicious real-time web framework!</title>
+  </head>
+  <body>
+    <h2>Welcome to the Mojolicious real-time web framework!</h2>
+    This is the static document "public/index.html",
+    <a href="/">click here</a> to get back to the start.
+
+    <script>
+    var ws = new WebSocket('ws://'+window.location.host+'/api/ws');
+
+  // Incoming messages
+  ws.onmessage = function (event) {
+    document.body.innerHTML += event.data + '<br/>';
+  };
+
+  // Outgoing messages
+  ws.onopen = function (event) {
+    // window.setInterval(function () {
+        ws.send('{"name":"OOP"}')
+    // }, 1000);
+  };
+    </script>
+  </body>
+</html>

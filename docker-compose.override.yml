@@ -1,0 +1,17 @@
+version: '2'
+services:
+    mojolicious:
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./codecute:/codecute
+        environment:
+            - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres/${POSTGRES_DB}
+            - MOJO_SECRET
+            - CONFIG_FB_SECRET
+            - CONFIG_FB_CBURL
+        entrypoint: [morbo, script/codecute]
+    postgres:
+        environment:
+            - POSTGRES_PASSWORD
+            - POSTGRES_DB

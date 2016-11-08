@@ -1,0 +1,12 @@
+<h1>Create new problem</h1>
+<form #form="ngForm" (ngSubmit)="handleSubmit(form.value)">
+  <fieldset class="form-group">
+    <label>Problem name</label>
+    <input type="text" name="name" class="form-control" placeholder="Wizard of skn" ngModel>
+  </fieldset>
+  <fieldset class="form-group">
+    <label >Detail</label>
+    <textarea name="body" class="form-control" ngModel></textarea>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

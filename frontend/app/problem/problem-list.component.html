@@ -1,0 +1,13 @@
+<div class="row" *ngIf="currentAccount.role=='admin'">
+    <a routerLink="create" class="btn btn-primary">CREATE</a>
+</div>
+<div class="row" *ngFor="let problem of problems">
+    <div class="col-md">
+        <div class="card card-block">
+            <h4 class="card-title">{{problem.name}}</h4>
+            <p class="card-text">EZ problem!</p>
+            <a [routerLink]="[problem.problem_id]" class="card-link text-success">Solve</a>
+            <a [routerLink]="[problem.problem_id,'edit']" class="card-link text-warning">Edit</a>
+        </div>
+    </div>
+</div>
